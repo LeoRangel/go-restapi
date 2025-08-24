@@ -43,6 +43,9 @@ func main() {
 
 	// rota para criar novo produto
 	server.POST("/product", ProductController.CreateProduct)
+	
+	// rota para buscar um produto
+	server.GET("/product/:productId", ProductController.GetProductById)
 
 	// rodando o projeto na porta indicada
 	server.Run(":8000")
