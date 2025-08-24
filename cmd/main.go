@@ -41,6 +41,9 @@ func main() {
 	// rota para retornar produtos e função do controller responsável por fazer isso
 	server.GET("/products", ProductController.GetProducts)
 
+	// rota para criar novo produto
+	server.POST("/product", ProductController.CreateProduct)
+
 	// rodando o projeto na porta indicada
 	server.Run(":8000")
 }

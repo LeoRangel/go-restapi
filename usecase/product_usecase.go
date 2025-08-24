@@ -21,3 +21,15 @@ func NewProductUseCase(repo repository.ProductRepository) ProductUsecase {
 func (pu *ProductUsecase) GetProducts() ([]model.Product, error) {
 	return pu.repository.GetProducts()
 }
+
+// função que trata regras de negócio para rota post /product
+func (pu *ProductUsecase) CreateProduct(product model.Product) (model.Product, error) {
+	productId, err := pu.repository.CreateProduct(product)
+	if err != nil {
+		return model.Product{}, err
+	}
+
+	product.ID = productId
+
+	return product, nil
+}
