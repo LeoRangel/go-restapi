@@ -1,7 +1,16 @@
 version: "3.9"
 
 services:
-  # doc: config banco postgres, com variáveis de ambiente e volume para persistir dados
+  # config para subir aplicação
+  go-app:
+    container_name: go-app
+    image: go-restapi
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - go_db
+  # config banco postgres, com variáveis de ambiente e volume para persistir dados
   go_db:
     container_name: go_db
     image: postgres:12

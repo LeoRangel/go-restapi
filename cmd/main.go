@@ -47,6 +47,9 @@ func main() {
 	// rota para buscar um produto
 	server.GET("/product/:productId", ProductController.GetProductById)
 
+	// TODO: add rota de delete e put (editar)
+	// TODO: add autenticação jwt
+
 	// rodando o projeto na porta indicada
 	server.Run(":8000")
 }
